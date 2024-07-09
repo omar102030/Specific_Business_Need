@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_from_omar_ahmed/core/routing/routes.dart';
@@ -5,8 +7,30 @@ import 'package:task_from_omar_ahmed/core/theming/styles.dart';
 import 'package:task_from_omar_ahmed/core/widgets/app_text_button.dart';
 import 'package:task_from_omar_ahmed/core/widgets/login_sheet.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
+import '../../../core/helpers/event_bus.dart';
+
+class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key});
+
+  @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  late StreamSubscription eventBusListener;
+  @override
+  void initState() {
+    super.initState();
+    eventBusListener = eventBus.on<LoggedInDuringAppCycle>().listen((event) {
+      //? specific implementation
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    eventBusListener.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {

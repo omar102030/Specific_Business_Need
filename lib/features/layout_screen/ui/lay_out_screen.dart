@@ -1,9 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../core/helpers/event_bus.dart';
 import '../../../core/widgets/nav_bar_widget.dart';
 import '../../nav_bar_screen/fourth_screen/fourth_screen.dart';
