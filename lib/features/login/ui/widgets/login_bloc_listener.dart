@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_from_omar_ahmed/core/di/dependency_injection.dart';
 import 'package:task_from_omar_ahmed/core/helpers/event_bus.dart';
 import 'package:task_from_omar_ahmed/core/helpers/extensions.dart';
-
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
@@ -10,8 +10,9 @@ import '../../logic/cubit/login_cubit.dart';
 import '../../logic/cubit/login_state.dart';
 
 class LoginBlocListener extends StatelessWidget {
-  final String? fallBackRoute;
-  const LoginBlocListener({super.key, required this.fallBackRoute});
+  const LoginBlocListener({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +32,15 @@ class LoginBlocListener extends StatelessWidget {
             );
           },
           success: (loginResponse) {
-            if (fallBackRoute != null) {
+            if (getIt.isRegistered<String>()) {
               //? For updating the past screens after login if needed
               eventBus.fire(LoggedInDuringAppCycle());
 
               //? pop the stack to the fallBackRoute passed from the desired screen
               Navigator.of(context).popUntil((route) {
-                return route.settings.name == fallBackRoute;
+                return route.settings.name == getIt.get<String>();
               });
+              getIt.unregister<String>();
             } else {
               //? Normal implementation
               context.pop();

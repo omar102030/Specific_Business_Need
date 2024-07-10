@@ -22,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
-    final String args = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
@@ -80,9 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const TermsAndConditionsText(),
                     60.verticalSpace,
                     const AlreadyHaveAccountText(),
-                    LoginBlocListener(
-                      fallBackRoute: args,
-                    )
+                    const LoginBlocListener()
                   ],
                 ))
           ],
