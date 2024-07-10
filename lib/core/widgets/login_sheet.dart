@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task_from_omar_ahmed/core/helpers/extensions.dart';
 import 'package:task_from_omar_ahmed/core/routing/routes.dart';
 import 'package:task_from_omar_ahmed/core/widgets/app_text_button.dart';
 

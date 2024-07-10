@@ -49,7 +49,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 1)),
-              child: Text('Product Image'),
+              child: const Text('Product Image'),
             ),
             20.verticalSpace,
             AppTextButton(

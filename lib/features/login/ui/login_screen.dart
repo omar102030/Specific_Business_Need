@@ -11,11 +11,7 @@ import '../../../core/widgets/app_text_button.dart';
 import '../../../core/widgets/app_text_form_field.dart';
 
 class LoginScreen extends StatefulWidget {
-  final String? fallBackRoute;
-  const LoginScreen({
-    super.key,
-    this.fallBackRoute,
-  });
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
